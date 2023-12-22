@@ -1,0 +1,111 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+  }
+
+  .background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    background-image: url('/public/party.jpg');
+     /* Resmin dosya yolunu buraya ekleyin */
+    background-size: cover;
+    background-position: center;
+    filter: blur(8px); /* Sadece arka plan resmi için bulanıklık efekti */
+  }
+
+  .background-darkness {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Karanlık arka plan için opaklık */
+    z-index: -1;
+  }
+  
+.admin-side{
+    width: 100%;
+    background-color: yellow;
+}
+
+.plate-side{
+    width: 100%;
+    
+}
+
+.search-side{
+    width: 100;
+    background-color: red;
+}
+
+.container-all{
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 3fr 5fr 2fr;
+}
+
+.city-container{
+    text-align: center;
+    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 1.2rem;
+    margin: 0.4rem;
+}
+
+.city{
+    font-size: 1rem;
+}
+
+.city-and-plate{
+    text-align: center;
+    align-items: center;
+    
+    width: 100%;
+    color: #fff;
+    border-radius: 1rem;
+    border: 0px solid rgba(255,255,255,0.5);
+    box-shadow: 0px 0px 3px 2px rgba(255,255,255,0.3);
+    transition: 0.3s all ease;
+    padding: 1.3rem 0.4rem;
+    background-color: rgba(0, 0, 0, 0.5); /* Karanlık arka plan için opaklık */
+    
+}
+
+.city-and-plate:hover{
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.city-container-inside{
+    text-align: center;
+    align-items: center;
+}
+
+.city-container-inside{
+   
+}
+
+.plate-container{
+    color: black;
+    display: inline-block;
+    margin-top: 0.5rem;
+    border-radius: 50%;
+    background-color: #ffffff;;
+    padding: 0.3rem;
+   
+}
+
+@media screen and (max-width: 1000px) {
+    /* Örnek stil değişikliği */
+    .container-all{
+        grid-template-columns: 1fr;
+    }
+  }
