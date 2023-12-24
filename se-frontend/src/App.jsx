@@ -16,6 +16,8 @@ function App() {
         <Route path="/" element={<CityPlateList />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/details" element={<ActivityDetails/>} />
+     ß
+        
         
         {/* Other routes if needed */}
       </Routes>

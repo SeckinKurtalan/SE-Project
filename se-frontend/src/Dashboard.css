@@ -3,27 +3,38 @@ body{
     overflow: auto !important;
 }
 
+
 .search-container {
     text-align: center;
     top: 50px;
-    margin-top: 20px;
+    margin-top: 10px;
     position: relative;
     z-index: 1; /* İstediğin boşluğa göre ayarlayabilirsin */
 }
 
 .search-input {
+  align-items: center;
     padding: 15px;
     width: 700px; /* veya istediğin genişliği belirleyebilirsin */
     border-radius: 10px;
     border: 1px solid #ccc;
 }
 
+.city-container{
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+
 .city-btn {
-  
-  font-size: 0.9rem;
-  margin-left: 20px;
   position: relative;
-  padding: 15px 20px;
+  left: 1000px;
+  top: 17px;
+  align-items: center;
+  text-align: center;
+  font-size: 0.9rem;
+  padding: 13.5px 20px;
   width: 150px;
   border-radius: 10px;
   border: 1px solid #ccc;
@@ -32,20 +43,6 @@ body{
   transition: background-color 0.3s, color 0.3s; /* Geçiş efektleri ekleyelim */
 }
 
-.city-btn::after {
-  font-size: 1.2rem;
-  content: " >"; /* İçeriğe bir simge eklemek için */
-  position: absolute;
-  right: 10px; /* Sağa 10px mesafede */
-  top: 50%; /* Yüksekliğin yarısında */
-  transform: translateY(-50%); /* Yatayda merkezleme */
-  opacity: 0; /* Başlangıçta görünmez yapalım */
-  transition: opacity 0.3s; /* Geçiş efekti ekleyelim */
-}
-
-.city-btn:hover::after {
-  opacity: 1; /* Üzerine gelindiğinde simgeyi görünür yapalım */
-}
 
 .city-btn:hover{
   border: 1px solid #b82828;
@@ -56,14 +53,7 @@ body{
 
 
 
-.search-icon {
-    position: absolute;
-    margin-left: -40px; /* İkonun konumunu ayarla */
-    margin-top: 15px; /* İkonun konumunu ayarla */
-    color: #b82828; /* İkon rengini ayarla */
-     /* İkonun tıklanabilirliğini kapat */
 
-  }
   .gif-image {
     width: 100vw; /* Gif'in yatayda tüm ekranı kaplamasını sağlar */
     height: 250px; /* Yüksekliği istediğiniz boyuta küçültür */
@@ -142,4 +132,39 @@ body{
 
 .event-details {
     padding: 10px;
+}
+
+@media screen and (max-width: 1500px) {
+  .city-btn {
+    left: 1000px;
+    }
+}
+
+
+@media screen and (max-width: 1300px) {
+  .city-btn {
+    width: 130px;
+    left: 900px;
+    }
+}
+
+@media screen and (max-width: 1075px) {
+  .city-btn {
+    width: 110px;
+    left: 850px;
+    }
+}
+
+@media screen and (max-width: 975px) {
+  .city-btn {
+    width: 100px;
+    left: 800px;
+    }
+}
+
+@media screen and (max-width: 925px) {
+  .city-btn {
+    width: 90px;
+    left: 750px;
+    }
 }

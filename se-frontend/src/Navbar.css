@@ -11,7 +11,8 @@
 
 .navbar{
   padding: 1.4rem 1.6rem;
-  background-color: #7FFFD4;
+  box-shadow: 1px 1px 10px 1px rgba(11,156,49,0.8);
+  background-image: linear-gradient(to top, rgba(11,156,49,0.8), rgba(11,156,49,0.1));
 }
 
 .navbar .container{
@@ -24,7 +25,18 @@
   height: auto;
 }
 
+a:hover{
+  cursor: pointer;
+  color: #231a69;
+  text-decoration: underline;
+}
+
+.main-logo{
+  cursor: pointer;
+}
+
 a{
+  transition: 0.3s all ease;
   font-weight: 700;
   text-decoration: none;
   color: #483D8B;

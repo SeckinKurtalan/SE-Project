@@ -1,9 +1,10 @@
 // src/components/CityPlateList.js
 import React from 'react';
-import Star from './Star';
+
 import '../CityPlateList.css';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { useState } from "react";
 
 
 const citiesAndPlates = [
@@ -70,21 +71,95 @@ const citiesAndPlates = [
     { city: 'Düzce', plate: 81 },
   ];
 
+  function isNumeric(deger) {
+    return /^\d+$/.test(deger);
+  }
+
 const CityPlateList = () => {
+  const [modalVisible, setModalVisible] = useState(false);
   const navigate = useNavigate();
 
-  const handleCityPlateClick = () => {
+  const handleOpenModalClick = () =>{
+    setModalVisible(true);
+  }
+
+  const handleCloseModalClick = () =>{
+    setModalVisible(false);
+  }
+
+  const handleCityPlateClick = (event) => {
+    
+
+
+    // console.log(event.target.children[0].innerHTML)
+    console.log(event)
+    let y = event.target.textContent
+    let z = y.slice(-1)
+    
+    if (isNumeric(z)){
+      y = y.slice(0,-1)
+    }
+
+    if (isNumeric(y.slice(-1))){
+      y = y.slice(0,-1)
+    }
+
+      const x = y;
+
+    // const x  = event.target.children[0].innerHTML;
       // Logic for handling the click event and navigating to Dashboard.jsx
-      navigate('/Dashboard'); // Navigate to the root path (Dashboard)
-  };
+      navigate('/Dashboard', { state: { sentence: x } });
+    };
   
     return (
+
+
+        
+
+
         <div>
+
+          <div className={`modal ${modalVisible ? '' : ' hidden'}`}>
+            <div className="modal-inside">
+              
+              <div className="modal-inside--inside">
+              <div className="close-container">
+                <button onClick={handleCloseModalClick} className="close-btn">
+                  X
+                </button>
+              </div>
+              <ul>
+                <li><input className="event-input" type="text" placeholder="Name"/></li>
+                <li><input className="event-input" type="text" placeholder="Location"/></li>
+                <li><input className="event-input" type="text" placeholder="Date"/></li>
+                <li><input className="event-input" type="text" placeholder="Price"/></li>
+                <li><input className="event-input" type="text" placeholder="Address"/></li>
+                <li><input className="event-input" type="text" placeholder="Description"/></li>
+                <li><input className="event-input" type="text" placeholder="Artists"/></li>
+                <li><input className="event-input" type="text" placeholder="Genre"/></li>
+                <li><input className="event-input" type="text" placeholder="Type"/></li>
+              </ul>
+              <div className="event-btn-container">
+                <button onClick={handleCloseModalClick} className="event-btn">
+                  Create
+                </button>
+              </div>
+              </div>
+            </div>
+          </div>
+
+
           <div className="background-image"></div>
           <div className="background-darkness"></div>
         <div className='container-all'>
           <div className='search-side'>
-            search
+          <input className="search-input-left" type="text" placeholder="Search City"/>
+          <div className="admin-side">
+            <div className="create-event">
+              <button onClick={handleOpenModalClick} className="create-event-btn">Create Event</button>
+            </div>
+          </div>
+          
           </div>
     
           <div className="plate-side">
@@ -104,9 +179,7 @@ const CityPlateList = () => {
             </div>
           </div>
     
-          <div className="admin-side">
-            admin
-          </div>
+          
     
         </div>
     
