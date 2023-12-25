@@ -5,12 +5,15 @@ import Navbar from "./Navbar";
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
+import QRCode from "react-qr-code";
 
 function TicketBuy() {
   const [personCount, setPersonCount] = useState(0);
   const [modalVisible, setModalVisible] = useState(false);
   const [money, setMoney] = useState();
   const serviceFee = 6;
+  const [qrCodeVisible, setQrCodeVisible] = useState(false);
+  const [eventData, setEventData] = useState("");
   const handleOpenModalClick = (event) => {
     if (event.target) setModalVisible(true);
   };
@@ -46,6 +49,11 @@ function TicketBuy() {
     if (event.target) setModalVisible(true);
   };
 
+  const handlePayNowClick = () => {
+    const eventDataString = `${ticketValues.name}, ${ticketValues.date}, ${ticketValues.location}, ${ticketValues.address}, ${totalPrice}`;
+    setEventData(eventDataString);
+    setQrCodeVisible(true);
+  };
   const handleCloseModalClick = () => {
     setModalVisible(false);
   };
@@ -118,11 +126,17 @@ function TicketBuy() {
 
             <div className="buy-container-ticket">
               <div className="event-btn-container">
-                <button onClick={handleCloseModalClick} className="event-btn">
+                <button onClick={handlePayNowClick} className="event-btn">
                   Pay Now
                 </button>
               </div>
             </div>
+            {qrCodeVisible && (
+              <div className="qr-code-container">
+                <QRCode value={eventData} size={150} />
+                {/* Yukarıda oluşturduğunuz QR kodunu göstermek için bir alan */}
+              </div>
+            )}
           </div>
         </div>
       </div>
