@@ -1,4 +1,3 @@
-// src/components/CityPlateList.js
 import React from "react";
 import "../ActivityDetails.css";
 import { Link } from "react-router-dom";
